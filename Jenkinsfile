@@ -10,7 +10,6 @@ pipeline{
                 git branch: 'main', url: 'https://github.com/dhrupad09/demo-counter-app.git'
             }
         }
-    }
         stage('UNIT testing'){
             
             steps{
@@ -21,5 +20,7 @@ pipeline{
                 }
             }
         }
+    }
+    
 }
 
