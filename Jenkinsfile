@@ -54,13 +54,13 @@ pipeline{
                     
                 }
             }
-            stage('Quality Gate Status'){
+            stage('upload war file to nexus'){
                 
                 steps{
                     
                     script{
                         
-                        waitForQualityGate abortPipeline: false, credentialsId: 'dd'
+                        nexusArtifactUploader artifacts: [[artifactId: 'springboot', classifier: '', file: 'target/uber.jar', type: 'jar']], credentialsId: '866994da-a25d-4acb-8117-4c0c6644cffc', groupId: 'com.example', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'http://localhost:8081/repository/demo-app-release/', version: '1.0.0'
                     }
                 }
             }
